@@ -1,6 +1,8 @@
 "# CV" 
 
 interview
+https://tactiq.io/tools/run/youtube_transcript?yt=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DIMEzmmP3WAs%26list%3DPL3aZbxdSiCbM9EfasmUTQ4njpZ-E5P6zd%26index%3D2
+
 1️⃣ ASP.NET Core architecture
 https://www.youtube.com/watch?v=pXmMdmJUC0g&list=PLQMqUlV2_B8lihDKBuTpkuUp1yIHIemSH
 2️⃣ SQL performance tuning
