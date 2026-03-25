@@ -22,6 +22,7 @@ https://www.youtube.com/watch?v=G3tz9rxts8E
 🎤 1. Tell me about yourself
 
 Hello, my name is Minh. I’m a .NET Full Stack Developer with over 6 years of experience in developing web, desktop, and mobile applications.
+I have a Bachelor’s degree in Information Technology from the University of Transport in Ho Chi Minh City.
 
 Currently, I’m working at German Software Intelligence, where I develop WPF desktop applications integrated with BIM platforms. I mainly work with C#, .NET, RESTful APIs, SQL Server, and MVVM architecture.
 
