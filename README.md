@@ -91,8 +91,10 @@ I helped ensure smooth communication and integration between components.
 
 In one project, I underestimated the complexity of API integration.
 ˈɪn wˈɒn pɹˈɒd͡ʒɛkt, ˈa͡ɪ ˌʌndəɹˈɛstɪmˌe͡ɪtɪd ðˈə kəmplˈɛksɪti ˈɒv ˌe͡ɪpˌiːˈa͡ɪ ˌɪntɪɡɹˈe͡ɪʃən.
+
 This caused some delays.
 ðˈɪs kˈɔːzd sˈʌm dɪlˈe͡ɪz.
+
 After that, I improved my estimation and planning process.
 ˈaftə ðˈat, ˈa͡ɪ ɪmpɹˈuːvd mˈa͡ɪ ˌɛstɪmˈe͡ɪʃən ˈand plˈanɪŋ pɹˈə͡ʊsɛs.
 
@@ -100,8 +102,10 @@ After that, I improved my estimation and planning process.
 
 I supported a small team by helping with task planning and coordination.
 ˈa͡ɪ səpˈɔːtɪd ˈe͡ɪ smˈɔːl tˈiːm bˈa͡ɪ hˈɛlpɪŋ wˈɪð tˈask plˈanɪŋ ˈand kə͡ʊˈɔːdɪnˈe͡ɪʃən.
+
 I made sure everyone understood the requirements and stayed aligned.
 ˈa͡ɪ mˈe͡ɪd ʃˈʊ͡ə ˈɛvɹɪwˌɒn ˌʌndəstˈʊd ðˈə ɹɪkwˈa͡ɪ͡əmənts ˈand stˈe͡ɪd ɐlˈa͡ɪnd.
+
 This helped us deliver the project successfully.
 ðˈɪs hˈɛlpt ˈʌs dɪlˈɪvə ðˈə pɹˈɒd͡ʒɛkt səksˈɛsfəli.
 
@@ -109,8 +113,10 @@ This helped us deliver the project successfully.
 
 I handle pressure by organizing tasks and focusing on priorities.
 ˈa͡ɪ hˈandə͡l pɹˈɛʃə bˈa͡ɪ ˈɔːɡənˌa͡ɪzɪŋ tˈasks ˈand fˈə͡ʊkəsɪŋ ˈɒn pɹa͡ɪˈɒɹɪtiz.
+
 I break work into smaller steps and handle them one by one.
 ˈa͡ɪ bɹˈe͡ɪk wˈɜːk ˈɪntʊ smˈɔːlə stˈɛps ˈand hˈandə͡l ðˈɛm wˈɒn bˈa͡ɪ wˈɒn.
+
 I also communicate early if there are risks.
 ˈa͡ɪ ˈɔːlsə͡ʊ kəmjˈuːnɪkˌe͡ɪt ˈɜːlɪ ˈɪf ðˈe͡ə ˈɑː ɹˈɪsks.
 
@@ -118,8 +124,10 @@ I also communicate early if there are risks.
 
 I start by understanding the root cause.
 ˈa͡ɪ stˈɑːt bˈa͡ɪ ˌʌndəstˈandɪŋ ðˈə ɹˈuːt kˈɔːz.
+
 Then I break the problem into smaller parts, test solutions, and choose the best one.
 ðˈɛn ˈa͡ɪ bɹˈe͡ɪk ðˈə pɹˈɒbləm ˈɪntʊ smˈɔːlə pˈɑːts, tˈɛst səlˈuːʃənz, ˈand t͡ʃˈuːz ðˈə bˈɛst wˈɒn.
+
 I also use logs, debugging tools, and sometimes AI to support.
 ˈa͡ɪ ˈɔːlsə͡ʊ jˈuːs lˈɒɡz, dˈiːbˌʌɡɪŋ tˈuːlz, ˈand sˈʌmta͡ɪmz ˌe͡ɪˈa͡ɪ tˈuː səpˈɔːt.
 
@@ -135,6 +143,7 @@ I also have experience with ReactJS, WPF, and Flutter.
 
 I follow clean code principles, write unit tests, and do code reviews.
 ˈa͡ɪ fˈɒlə͡ʊ klˈiːn kˈə͡ʊd pɹˈɪnsɪpə͡lz, ɹˈa͡ɪt jˈuːnɪt tˈɛsts, ˈand dˈuː kˈə͡ʊd ɹɪvjˈuːz.
+
 I also refactor code when needed to improve maintainability.
 ˈa͡ɪ ˈɔːlsə͡ʊ ɹɪfˈaktə kˈə͡ʊd wˈɛn nˈiːdɪd tˈuː ɪmpɹˈuːv me͡ɪntˈe͡ɪnəbˌɪlɪti.
 
@@ -142,6 +151,7 @@ I also refactor code when needed to improve maintainability.
 
 I prioritize tasks based on importance and deadlines.
 ˈa͡ɪ pɹa͡ɪˈɒɹɪtˌa͡ɪz tˈasks bˈe͡ɪst ˈɒn ɪmpˈɔːtəns ˈand dˈɛdla͡ɪnz.
+
 I break tasks into smaller parts and track progress daily.
 ˈa͡ɪ bɹˈe͡ɪk tˈasks ˈɪntʊ smˈɔːlə pˈɑːts ˈand tɹˈak pɹˈə͡ʊɡɹɛs dˈe͡ɪli.
 
@@ -149,8 +159,10 @@ I break tasks into smaller parts and track progress daily.
 
 Yes, I am comfortable working in an international environment.
 jˈɛs, ˈa͡ɪ ˈam kˈʌmftəbə͡l wˈɜːkɪŋ ˈɪn ˈan ˌɪntənˈaʃənə͡l ɛnvˈa͡ɪɹənmənt.
+
 I can read technical documents in English and communicate with team members.
 ˈa͡ɪ kˈan ɹˈiːd tˈɛknɪkə͡l dˈɒkjuːmənts ˈɪn ˈɪŋɡlɪʃ ˈand kəmjˈuːnɪkˌe͡ɪt wˈɪð tˈiːm mˈɛmbəz.
+
 I’m also improving my English skills continuously.
 ˈa͡ɪ’ˈɛm ˈɔːlsə͡ʊ ɪmpɹˈuːvɪŋ mˈa͡ɪ ˈɪŋɡlɪʃ skˈɪlz kəntˈɪnjuːəsli.
 
@@ -166,22 +178,27 @@ This helps improve productivity and code quality.
 
 Yes, when conflicts happen, I listen to different opinions and focus on technical facts.
 jˈɛs, wˈɛn kˈɒnflɪkts hˈapən, ˈa͡ɪ lˈɪsən tˈuː dˈɪfɹənt əpˈɪni͡ənz ˈand fˈə͡ʊkəs ˈɒn tˈɛknɪkə͡l fˈakts.
+
 I try to find the best solution for the project and keep communication professional.
 ˈa͡ɪ tɹˈa͡ɪ tˈuː fˈa͡ɪnd ðˈə bˈɛst səlˈuːʃən fˈɔː ðˈə pɹˈɒd͡ʒɛkt ˈand kˈiːp kəmjˌuːnɪkˈe͡ɪʃən pɹəfˈɛʃənə͡l.
 
 💰 19. What are your salary expectations?
 I’m looking for a salary around 2000 USD, based on my experience and skill set.
 ˈa͡ɪ’ˈɛm lˈʊkɪŋ fˈɔː ˈe͡ɪ sˈaləɹi ɐɹˈa͡ʊnd 2000 jˌuːˌɛsdˈiː, bˈe͡ɪst ˈɒn mˈa͡ɪ ɛkspˈi͡əɹɪəns ˈand skˈɪl sˈɛt.
+
 I’m open to discussion based on the role and responsibilities.
 ˈa͡ɪ’ˈɛm ˈə͡ʊpən tˈuː dɪskˈʌʃən bˈe͡ɪst ˈɒn ðˈə ɹˈə͡ʊl ˈand ɹɪspˌɒnsəbˈɪlɪtiz.
+
 I expect a competitive salary that matches my experience.
 ˈa͡ɪ ɛkspˈɛkt ˈe͡ɪ kəmpˈɛtɪtˌɪv sˈaləɹi ðˈat mˈat͡ʃɪz mˈa͡ɪ ɛkspˈi͡əɹɪəns.
 
 💎 20. What can you bring to the company?
 I can bring strong full-stack development skills and real estate system experience.
 ˈa͡ɪ kˈan bɹˈɪŋ stɹˈɒŋ fˈʊl-stˈak dɪvˈɛləpmənt skˈɪlz ˈand ɹˈi͡əl ɪstˈe͡ɪt sˈɪstəm ɛkspˈi͡əɹɪəns.
+
 I can also contribute with automation and AI knowledge to improve efficiency.
 ˈa͡ɪ kˈan ˈɔːlsə͡ʊ kəntɹˈɪbjuːt wˈɪð ˌɔːtəmˈe͡ɪʃən ˈand ˌe͡ɪˈa͡ɪ nˈɒlɪd͡ʒ tˈuː ɪmpɹˈuːv ɪfˈɪʃənsi.
+
 I’m a responsible and fast-learning person.
 ˈa͡ɪ’ˈɛm ˈe͡ɪ ɹɪspˈɒnsɪbə͡l ˈand fˈast-lˈɜːnɪŋ pˈɜːsən.
 ❓ 21. Do you have any questions for us?
