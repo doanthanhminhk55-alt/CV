@@ -80,8 +80,10 @@ I also participated in system deployment using Azure.
 
 I worked in a team with backend, frontend, and mobile developers.
 ˈa͡ɪ wˈɜːkt ˈɪn ˈe͡ɪ tˈiːm wˈɪð bakˈɛnd, fɹˈʌntˌɛnd, ˈand mˈə͡ʊba͡ɪl dɪvˈɛləpəz.
+
 We collaborated closely to deliver a real estate system under a tight deadline.
 wˈiː kəlˈabəɹˌe͡ɪtɪd klˈə͡ʊsli tˈuː dɪlˈɪvə ˈe͡ɪ ɹˈi͡əl ɪstˈe͡ɪt sˈɪstəm ˈʌndə ˈe͡ɪ tˈa͡ɪt dˈɛdla͡ɪn.
+
 I helped ensure smooth communication and integration between components.
 ˈa͡ɪ hˈɛlpt ɛnʃˈʊ͡ə smˈuːð kəmjˌuːnɪkˈe͡ɪʃən ˈand ˌɪntɪɡɹˈe͡ɪʃən bɪtwˈiːn kəmpˈə͡ʊnənts.
 
