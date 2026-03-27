@@ -1,0 +1,206 @@
+🧠 I. CORE QUESTIONS (XUẤT HIỆN NHIỀU NHẤT)
+🧪 1. Testing (CÂU HOT NHẤT)
+How do you test your code?
+
+👉 Đây là câu lặp lại nhiều nhất toàn bộ data
+
+👨‍💻 2. Experience / CV
+Tell me about yourself
+Walk me through your project
+Most challenging project
+What did you do with [technology]?
+🔄 3. Agile
+Describe Agile practices and its uses
+🏗 4. Design Pattern
+List design patterns
+Why are they important?
+When to use them?
+🏢 5. Work Style
+Work from home or office?
+Are you able to work in a team?
+💻 II. CODING + DSA (CHẮC CHẮN CÓ)
+🔥 Mức độ: Easy → Medium (LeetCode)
+📌 Array / String
+Move all zeros to end
+Find pair with target
+Subarray / substring (Kadane)
+🌳 Tree / Graph
+Validate Binary Search Tree
+Trie / Graph (hard hơn)
+⚡ Classic
+FizzBuzz
+Missing number O(log n)
+🧱 III. FUNDAMENTALS (RẤT QUAN TRỌNG)
+🧠 OOP
+4 principles of OOP
+Polymorphism / Inheritance (giải thích + ví dụ)
+🧵 OS / Thread
+Process vs Thread
+When to use multithreading
+🌐 Networking
+TCP vs UDP
+🗄 Database
+SQL vs NoSQL
+Basic SQL queries
+🏗 IV. SYSTEM DESIGN (SENIOR)
+🔥 Câu hay gặp:
+Design URL Shortener (TinyURL)
+Design scalable system
+
+👉 Expect:
+
+API design
+DB schema
+Caching
+⚙️ V. TECHNOLOGY-SPECIFIC (QUAN TRỌNG CHO BẠN)
+💥 Backend / DevOps
+Docker là gì
+Linux basics
+Azure / Cloud
+🧠 Language-specific
+
+👉 (Áp dụng sang .NET)
+
+Features of your main language
+OOP trong thực tế
+Memory / performance
+🎯 VI. BEHAVIORAL (STAR)
+Tell me about a disagreement
+Tell me a time you were stuck
+How do you handle pressure?
+💣 VII. CV DEEP DIVE (CỰC NGUY HIỂM)
+
+👉 Họ hỏi rất sâu:
+
+Explain architecture project
+Why choose this design
+What would you improve
+⚡ VIII. REAL INTERVIEW FORMAT
+📌 Flow chuẩn:
+HR screening
+Coding test (Codility / HackerRank)
+Technical interview
+Manager / Behavioral
+HR round
+⏱ Timeline:
+1 tuần → 4 tuần
+Có thể nhiều vòng (3–7 vòng)
+🚀 IX. CHUYỂN HÓA SANG C# .NET (CHO BẠN)
+
+👉 Đây là phần QUAN TRỌNG NHẤT mình customize cho bạn:
+
+🔥 CHẮC CHẮN BỊ HỎI (.NET)
+💻 Backend
+ASP.NET Core lifecycle
+Middleware pipeline
+Dependency Injection
+⚡ Async
+async/await hoạt động thế nào
+Task vs Thread
+🧪 Testing
+
+👉 (liên kết câu HOT)
+
+Unit test (xUnit, NUnit)
+Integration test
+🗄 Database
+EF Core vs Dapper
+Index & optimization
+🔐 Security
+JWT authentication flow
+💥 X. TOP 10 “TRÚNG TỦ” NHẤT
+
+👉 Bạn chỉ cần học kỹ 10 câu này là đủ pass vòng technical:
+
+How do you test your code
+Tell me about your project
+Most challenging project
+Design pattern
+OOP principles
+SQL vs NoSQL
+Process vs Thread
+TCP vs UDP
+Design URL shortener
+One coding problem (array/string)
+
+MOTOROLA SOLUTIONS - SOFTWARE ENGINEER INTERVIEW (C# .NET)
+
+==============================
+I. CORE QUESTIONS
+==============================
+1. How do you test your code?
+2. Tell me about yourself
+3. Walk me through your project
+4. Most challenging project
+5. Describe Agile practices and its uses
+6. Design patterns: what, why, when
+7. Work from home or office?
+8. Teamwork experience
+
+==============================
+II. CODING & DSA
+==============================
+- Move zeros to end
+- Find pair with target
+- Subarray / substring (Kadane)
+- Validate BST
+- Trie / Graph basics
+- FizzBuzz
+- Missing number O(log n)
+
+==============================
+III. FUNDAMENTALS
+==============================
+- OOP principles (Encapsulation, Inheritance, Polymorphism, Abstraction)
+- Process vs Thread
+- TCP vs UDP
+- SQL vs NoSQL
+
+==============================
+IV. SYSTEM DESIGN
+==============================
+- Design URL Shortener
+- Design scalable API/system
+- Database schema design
+- Caching strategy
+
+==============================
+V. .NET SPECIFIC
+==============================
+- ASP.NET Core lifecycle
+- Middleware pipeline
+- Dependency Injection
+- async/await
+- Task vs Thread
+- EF Core vs Dapper
+- JWT Authentication
+
+==============================
+VI. BEHAVIORAL
+==============================
+- Conflict with teammate
+- Handling pressure
+- Problem-solving story
+
+==============================
+VII. INTERVIEW FLOW
+==============================
+1. HR screening
+2. Coding test
+3. Technical interview
+4. Behavioral interview
+5. HR round
+
+==============================
+TOP 10 MUST-LEARN
+==============================
+1. Testing strategy
+2. Project explanation
+3. Challenging project
+4. Design pattern
+5. OOP
+6. SQL vs NoSQL
+7. Process vs Thread
+8. TCP vs UDP
+9. System design
+10. Coding problem
