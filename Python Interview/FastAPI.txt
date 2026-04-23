@@ -1,0 +1,692 @@
+https://www.vskills.in/certification/tutorial/top-50-fastapi-job-interview-questions-and-answer/
+Top 50 FastAPI Job Interview Questions and Answer
+FastAPI, a modern, high-performance web framework for Python, has rapidly gained popularity among developers due to its simplicity, efficiency, and developer-friendly features. Its ability to create robust and scalable APIs has made it a go-to choice for a wide range of applications. As the demand for skilled FastAPI developers continues to grow, understanding the framework’s core concepts and potential interview questions becomes increasingly important.
+
+This blog post aims to provide a comprehensive guide to the Top 50 FastAPI Interview Questions and Answers. By exploring key topics such as asynchronous programming, dependency injection, path operations, data validation, and advanced features, we’ll equip you with the knowledge and confidence to excel in your FastAPI interviews. Whether you’re a seasoned Python developer or new to the framework, this resource will serve as a valuable asset in your career journey.
+
+FastAPI Interview Questions and Answers
+1. Explain the concept of asynchronous programming in Python.
+Asynchronous programming allows multiple tasks to run concurrently without blocking each other. In Python, it’s implemented using coroutines and event loops.
+
+2. How does FastAPI leverage asynchronous programming for performance?
+FastAPI uses the uvicorn ASGI server, which is inherently asynchronous. This allows it to handle multiple requests concurrently without blocking the main thread, improving performance and scalability.
+
+3. What are the benefits of using asynchronous programming in FastAPI?
+Improved performance: Handles more concurrent requests without blocking.
+Non-blocking I/O: Efficiently handles operations like database queries and network requests.
+Better scalability: Can handle higher loads without additional resources.
+4. What is dependency injection in FastAPI?
+Dependency injection is a design pattern where dependencies (objects needed by a class) are provided to the class from the outside, rather than the class creating them.
+
+5. How does dependency injection simplify code organization and testing in FastAPI?
+Loose coupling: Classes become less dependent on specific implementations, making them easier to test and reuse.
+Dependency management: FastAPI’s built-in dependency injection system handles the creation and management of dependencies.
+6. Provide an example of using dependency injection in FastAPI.
+Python
+
+from fastapi import FastAPI, Depends
+from pydantic import BaseModel
+
+class MyDependency:
+def init(self, message: str):
+self.message = message
+
+class Item(BaseModel):
+name: str
+
+app = FastAPI()
+
+@app.get(“/”)
+async def read_items(item: Item, my_dependency: MyDependency = Depends(MyDependency)):
+return {“item”: item, “message”: my_dependency.message}
+
+7. What are path operations in FastAPI?
+Path operations define the endpoints of your API, specifying the HTTP method (GET, POST, PUT, DELETE, etc.) and the path that triggers the operation.
+
+8. Discuss different types of path operations (GET, POST, PUT, DELETE, etc.)
+GET: Retrieves data from the server.
+POST: Sends data to the server to create a new resource.
+PUT: Updates an existing resource.  
+DELETE: Removes a resource from the server.
+PATCH: Partially updates an existing resource.
+9. Demonstrate how to create a path operation using FastAPI.
+from fastapi import FastAPI
+
+ app = FastAPI()
+
+ @app.get("/items/{item_id}")
+ async def read_item(item_id: int):
+     return {"item_id": item_id}   
+ ```
+10. Explain the importance of data validation in API development.
+Data integrity: Ensures that incoming data is valid and consistent.
+Security: Helps prevent malicious attacks like injection and cross-site scripting.
+User experience: Provides clear feedback to users when invalid data is submitted.
+11. How does FastAPI use Pydantic for data validation?
+Pydantic is a library that defines data structures and validates data against those structures. FastAPI uses Pydantic to validate request and response data.
+
+12. Provide examples of validating request and response data in FastAPI.
+Python
+
+from fastapi import FastAPI, Request, HTTPException
+from pydantic import BaseModel
+
+class Item(BaseModel):
+name: str
+price: float
+
+app = FastAPI()
+
+@app.post(“/items/”)
+async def create_item(item: Item, request: Request):
+# Validate request data using Pydantic
+item.validate()
+
+# ... process item data
+
+return {"item_id": 123}
+13. Explain the concept of WebSockets and their use cases.
+WebSockets provide full-duplex communication between a client and server, allowing for real-time updates and bidirectional data transfer. They are commonly used for chat applications, online games, and real-time data visualizations.
+
+14. Demonstrate how to implement WebSockets in FastAPI.
+“python from fastapi import FastAPI, WebSocket, WebSocketDisconnect
+
+app = FastAPI()
+
+@app.websocket(“/ws/{client_id}”)
+
+async def websocket_endpoint(websocket: WebSocket, client_id: int):
+
+await websocket.accept()
+
+try:
+
+while True:
+
+data = await websocket.receive_text()
+
+await websocket.send_text(f”You sent: {data}”)
+
+except WebSocketDisconnect:
+
+pass
+
+15. Discuss challenges and best practices for WebSocket development.
+Error handling: Implement proper error handling mechanisms to prevent unexpected behavior.
+Scalability: Consider using libraries like websockets or asgi-redis for handling large numbers of concurrent WebSocket connections.
+Security: Protect against vulnerabilities like XSS and CSRF.
+16. Explain background tasks and their use cases.
+Background tasks are tasks that run asynchronously in the background, allowing your application to continue processing requests while performing long-running operations. They are useful for tasks like sending emails, processing large datasets, or triggering periodic updates.
+
+17. Demonstrate how to create background tasks using FastAPI.
+from fastapi import FastAPI, BackgroundTask
+import time
+
+app = FastAPI()
+
+async def send_email(recipient: str):
+# Simulate sending an email
+time.sleep(2)
+print(f”Sending email to {recipient}”)
+
+@app.get(“/send-email/{recipient}”)
+async def send_email_endpoint(recipient: str):
+background_task = BackgroundTask(send_email, recipient=recipient)
+return {“message”: “Email sent in the background”}
+
+18. Discuss best practices for managing background tasks.
+Error handling: Implement proper error handling mechanisms to ensure background tasks are retried if they fail.
+Task prioritization: If multiple background tasks are running, consider implementing a priority system to ensure important tasks are executed first.
+Task monitoring: Use tools or libraries to monitor the status of background tasks and track their progress.
+19. Discuss security considerations in FastAPI development.
+Authentication: Implement mechanisms to verify the identity of users (e.g., using tokens, OAuth).
+Authorization: Control access to resources based on user roles and permissions.
+Input validation: Validate user input to prevent attacks like injection and cross-site scripting.
+Data encryption: Encrypt sensitive data both at rest and in transit.
+Security headers: Use security headers like Content-Security-Policy and HTTP Strict Transport Security to protect against common`python from fastapi import FastAPI, Depends, HTTPException from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm from pydantic import BaseModel  
+app = FastAPI()
+
+security = OAuth2PasswordBearer(tokenUrl=”token”)
+
+class User(BaseModel): username: str password: str
+
+async def get_current_user(security_token: str = Depends(security)): user = verify_token(security_token) # Replace with your token verification logic return user
+
+@app.post(“/token”) async def login(form_data: OAuth2PasswordRequestForm = Depends()): user = authenticate_user(form_data.username, form_data.password) # Replace with your authentication logic if not user: raise HTTPException(status_code=400, detail=”Incorrect username or password”) access_token = create_access_token(user) return {“access_token”: access_token, “token_type”: “bearer”}  
+
+@app.get(“/items/”) async def read_items(current_user: User = Depends(get_current_user)): # Only authenticated users can access this endpoint return {“items”: [{“item_id”: 1, “name”: “Foo”}, {“item_id”: 2, “name”: “Bar”}]}
+
+20. Provide examples of using security features in FastAPI.
+Password hashing: Use strong password hashing algorithms like bcrypt to store user passwords securely.
+CORS: Configure CORS settings to allow requests from specific domains.
+Rate limiting: Limit the number of requests a client can make within a certain time period to prevent abuse.
+Data encryption: Encrypt sensitive data using libraries like cryptography.
+Security headers: Set security headers like Content-Security-Policy and HTTP Strict Transport Security to protect against common web attacks.
+21. Discuss the importance of testing in FastAPI development.
+Quality assurance: Ensures that your API code is reliable and works as expected.
+Error prevention: Helps identify and fix bugs before they are deployed to production.
+Regression testing: Verifies that changes to your code don’t introduce new bugs.
+Documentation: Test cases can serve as documentation for your API’s behavior.
+22. Demonstrate how to write unit and integration tests for FastAPI applications.
+import pytest
+from fastapi import FastAPI, HTTPException
+from pydantic import BaseModel
+
+app = FastAPI()
+
+class Item(BaseModel):
+name: str
+price: float
+
+@app.post(“/items/”)
+async def create_item(item: Item):
+return {“item_id”: 123}
+
+# Unit test
+
+def test_create_item():
+client = TestClient(app)
+response = client.post(“/items/”, json={“name”: “Foo”, “price”: 10.0})
+assert response.status_code == 200
+assert response.json() == {“item_id”: 123}
+
+# Integration test
+
+def test_create_item_with_invalid_data():
+client = TestClient(app)
+response = client.post(“/items/”, json={“name”: “”})
+assert response.status_code == 422
+assert response.json()[“detail”][0][“msg”] == “required”
+
+23. Explain best practices for testing FastAPI applications.
+Test coverage: Aim for high test coverage to ensure that all parts of your code are thoroughly tested.
+Test isolation: Write tests that are independent of each other to avoid unexpected interactions.
+Test automation: Use tools like pytest to automate the running of your tests.
+Continuous integration: Integrate your tests into your continuous integration pipeline to automatically run them with every code change.
+24. Explain the concept of dependency injection in FastAPI.
+Dependency injection is a design pattern where dependencies (objects needed by a class) are provided to the class from the outside, rather than the class creating them.
+
+25. How do you handle request validation errors in FastAPI?
+FastAPI automatically handles request validation errors and returns a detailed error message with a 422 status code when input data doesn’t conform to the defined Pydantic model.
+
+26. How can you secure FastAPI endpoints with OAuth2?
+FastAPI provides built-in support for OAuth2 via OAuth2PasswordBearer and OAuth2PasswordRequestForm to secure routes. It requires creating an authentication flow that generates and validates JWT tokens.
+
+27. How can you handle background tasks in FastAPI?
+Background tasks can be handled using the BackgroundTasks class:
+
+from fastapi import BackgroundTasks
+def send_email(email: str):
+# Email sending logic
+@app.post(“/send-email/”)
+def send_email_background(email: str, background_tasks: BackgroundTasks):
+background_tasks.add_task(send_email, email)
+return {“message”: “Email will be sent”}
+
+28. What are middleware in FastAPI, and how do you use them?
+Middleware is a layer that processes requests before they reach your route and can handle responses before sending them to the client. Example of using middleware:
+
+pythonCopy code
+from starlette.middleware.base import BaseHTTPMiddleware
+app.add_middleware(BaseHTTPMiddleware, dispatch=my_custom_middleware)
+29. How do you test FastAPI applications?
+FastAPI supports testing with the TestClient from starlette.testclient:
+
+pythonCopy code
+from fastapi.testclient import TestClient
+client = TestClient(app)
+def test_read_item():
+    response = client.get("/items/")
+    assert response.status_code == 200
+30. How do you structure a FastAPI project?
+A typical FastAPI project structure includes separate modules for routes, models, and services. For example:
+
+markdownCopy code
+- app/
+  - main.py
+  - routes/
+  - models/
+  - services/
+31. What are CORS, and how do you handle them in FastAPI?
+CORS (Cross-Origin Resource Sharing) restricts which domains can interact with your API. You can enable CORS in FastAPI using the CORSMiddleware:
+
+pythonCopy code
+from fastapi.middleware.cors import CORSMiddleware
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+32. How do you upload files in FastAPI?
+You can upload files using the File and UploadFile classes:
+
+pythonCopy code
+from fastapi import File, UploadFile
+@app.post("/uploadfile/")
+def upload_file(file: UploadFile = File(...)):
+    return {"filename": file.filename}
+33. How do you implement pagination in FastAPI?
+Pagination is typically implemented by accepting limit and skip query parameters and returning a subset of the data:
+
+pythonCopy code
+@app.get("/items/")
+def get_items(skip: int = 0, limit: int = 10):
+    return items[skip : skip + limit]
+34. How do you use WebSockets in FastAPI?
+WebSockets in FastAPI are supported via @app.websocket() decorator:
+
+pythonCopy code
+@app.websocket("/ws")
+async def websocket_endpoint(websocket: WebSocket):
+    await websocket.accept()
+    await websocket.send_text("Hello WebSocket")
+35. What is the difference between @app.get() and @app.post() in FastAPI?
+@app.get() handles HTTP GET requests, typically used to retrieve data, while @app.post() handles HTTP POST requests, used to submit data to the server.
+
+36. How can you customize exception handling in FastAPI?
+FastAPI allows custom exception handling using @app.exception_handler() decorator:
+
+pythonCopy code
+from fastapi.exceptions import RequestValidationError
+@app.exception_handler(RequestValidationError)
+async def validation_exception_handler(request, exc):
+    return JSONResponse(status_code=422, content={"detail
+37. How do you handle form data in FastAPI?
+Form data can be handled using Form from FastAPI: python from fastapi import Form @app.post("/login/") def login(username: str = Form(...), password: str = Form(...)): return {"username": username}
+
+38. How do you handle multiple query parameters in FastAPI?
+You can handle multiple query parameters by defining them as function arguments. FastAPI will automatically parse and validate them: python @app.get("/items/") def read_items(q: str = None, limit: int = 10): return {"q": q, "limit": limit}
+
+39. What are request and response objects in FastAPI?
+The request object represents the incoming HTTP request, and the response object represents the outgoing HTTP response. You can use Request and Response classes from FastAPI: python from fastapi import Request, Response @app.get("/custom-response/") def custom_response(request: Request, response: Response): response.headers["X-Custom-Header"] = "Custom value" return {"message": "Custom response"}
+
+40. How can you validate a specific field in a Pydantic model?
+You can use Pydantic validators to validate fields: python from pydantic import BaseModel, validator class Item(BaseModel): name: str price: float @validator('price') def price_must_be_positive(cls, value): if value <= 0: raise ValueError("Price must be positive") return value
+
+41. What is the purpose of Depends() in FastAPI?
+Depends() is used to declare dependencies for your path operations. It allows you to reuse logic such as database connections, authentication, etc.
+
+42. How do you handle global dependencies in FastAPI?
+Global dependencies can be applied across multiple routes by adding them to the dependencies argument when creating the FastAPI instance: python app = FastAPI(dependencies=[Depends(common_dependency)])
+
+43. What are asynchronous dependencies, and how can you define them in FastAPI?
+Asynchronous dependencies are defined with async def and can be injected using Depends() like regular dependencies. These are useful for async I/O operations such as database queries.
+
+44. How can you handle rate limiting in FastAPI?
+Rate limiting can be implemented using third-party libraries like slowapi or custom middleware that limits requests per user or IP: python from slowapi import Limiter from slowapi.util import get_remote_address limiter = Limiter(key_func=get_remote_address) @app.get("/items/") @limiter.limit("5/minute") def get_items(): return {"message": "This is rate-limited"}
+
+45. How do you manage database connections in FastAPI?
+Database connections can be managed using dependency injection. You can define a dependency that yields a database session: python def get_db(): db = SessionLocal() try: yield db finally: db.close() @app.get("/items/") def read_items(db: Session = Depends(get_db)): return db.query(Item).all()
+
+46. How can you implement JWT-based authentication in FastAPI?
+JWT-based authentication is implemented by using OAuth2PasswordBearer and creating JWT tokens upon successful login: python from fastapi.security import OAuth2PasswordBearer oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token") @app.get("/users/me") def read_users_me(token: str = Depends(oauth2_scheme)): user = verify_token(token) return user
+
+47. What is the difference between synchronous and asynchronous endpoints in FastAPI?
+Synchronous endpoints are blocking and may cause performance issues with high I/O operations, while asynchronous endpoints allow for non-blocking I/O operations, improving performance in these cases.
+
+48. How do you handle exceptions globally in FastAPI?
+Global exception handling can be achieved using custom exception classes and @app.exception_handler(): python from fastapi import HTTPException class CustomException(Exception): def __init__(self, name: str): self.name = name @app.exception_handler(CustomException) def custom_exception_handler(request, exc: CustomException): return JSONResponse(status_code=418, content={"message": f"Custom Exception: {exc.name}"})
+
+49. How can you optimize the performance of FastAPI?
+Performance optimizations can include using asynchronous endpoints for I/O-bound operations, caching responses, using efficient middleware, and employing load balancers like Nginx or Traefik.
+
+50. How do you handle large file uploads in FastAPI?
+Large file uploads can be handled by adjusting the ASGI server configuration, using StreamingResponse, or writing the file in chunks: python from fastapi.responses import StreamingResponse @app.post("/upload/") async def upload_large_file(file: UploadFile = File(...)): async def iterfile(): yield from file.file return StreamingResponse(iterfile(), media_type="application/octet-stream")
+
+Conclusion
+In this guide, we have explored the Top 50 FastAPI Interview Questions and Answers. By understanding the core concepts, advanced topics, and best practices, you are well-equipped to tackle any FastAPI-related interview question.
+
+Key Points:
+
+Master the fundamentals: Understand asynchronous programming, dependency injection, path operations, and data validation.
+Explore advanced topics: Familiarize yourself with WebSockets, background tasks, security, and testing.
+Practice consistently: Regularly practice solving FastAPI-related problems to enhance your skills.
+Stay updated: Keep up with the latest developments and best practices in the FastAPI ecosystem
+
+50 câu hỏi và câu trả lời phỏng vấn xin việc hàng đầu tại FastAPI
+FastAPI, một framework web hiện đại, hiệu năng cao dành cho Python, đã nhanh chóng trở nên phổ biến trong giới lập trình viên nhờ sự đơn giản, hiệu quả và các tính năng thân thiện với người dùng. Khả năng tạo ra các API mạnh mẽ và có khả năng mở rộng đã khiến nó trở thành lựa chọn hàng đầu cho nhiều ứng dụng khác nhau. Khi nhu cầu về các lập trình viên FastAPI lành nghề tiếp tục tăng lên, việc hiểu các khái niệm cốt lõi của framework và các câu hỏi phỏng vấn tiềm năng ngày càng trở nên quan trọng.
+
+Bài đăng trên blog này nhằm cung cấp hướng dẫn toàn diện về 50 câu hỏi và câu trả lời phỏng vấn FastAPI hàng đầu . Bằng cách khám phá các chủ đề chính như lập trình bất đồng bộ, tiêm phụ thuộc, các thao tác đường dẫn, xác thực dữ liệu và các tính năng nâng cao, chúng tôi sẽ trang bị cho bạn kiến ​​thức và sự tự tin để vượt qua các cuộc phỏng vấn FastAPI. Cho dù bạn là một nhà phát triển Python dày dạn kinh nghiệm hay mới làm quen với framework này, tài liệu này sẽ là một tài sản quý giá trong hành trình sự nghiệp của bạn.
+
+Câu hỏi và câu trả lời phỏng vấn FastAPI
+1. Hãy giải thích khái niệm lập trình bất đồng bộ trong Python.
+Lập trình bất đồng bộ cho phép nhiều tác vụ chạy đồng thời mà không làm tắc nghẽn lẫn nhau. Trong Python, điều này được thực hiện bằng cách sử dụng coroutine và vòng lặp sự kiện.
+
+2. FastAPI tận dụng lập trình bất đồng bộ như thế nào để tối ưu hiệu năng?
+FastAPI sử dụng uvicornmáy chủ ASGI, vốn có tính chất bất đồng bộ. Điều này cho phép nó xử lý nhiều yêu cầu đồng thời mà không làm tắc nghẽn luồng chính, giúp cải thiện hiệu suất và khả năng mở rộng.
+
+3. Việc sử dụng lập trình bất đồng bộ trong FastAPI mang lại những lợi ích gì?
+Cải thiện hiệu suất: Xử lý nhiều yêu cầu đồng thời hơn mà không bị chặn.
+I/O không chặn: Xử lý hiệu quả các thao tác như truy vấn cơ sở dữ liệu và yêu cầu mạng.
+Khả năng mở rộng tốt hơn: Có thể xử lý tải trọng cao hơn mà không cần thêm tài nguyên.
+4. Dependency Injection trong FastAPI là gì?
+Dependency injection là một mẫu thiết kế trong đó các phụ thuộc (các đối tượng cần thiết cho một lớp) được cung cấp cho lớp đó từ bên ngoài, thay vì chính lớp đó tạo ra chúng.
+
+5. Làm thế nào việc tiêm phụ thuộc (dependency injection) giúp đơn giản hóa việc tổ chức mã và kiểm thử trong FastAPI?
+Liên kết lỏng lẻo: Các lớp trở nên ít phụ thuộc vào các triển khai cụ thể, giúp việc kiểm thử và tái sử dụng dễ dàng hơn.
+Quản lý phụ thuộc: Hệ thống tiêm phụ thuộc tích hợp sẵn của FastAPI xử lý việc tạo và quản lý các phụ thuộc.
+6. Hãy cung cấp một ví dụ về việc sử dụng injection phụ thuộc trong FastAPI.
+Python
+
+from fastapi import FastAPI, Depends
+from pydantic import BaseModel
+
+class MyDependency:
+def init (self, message: str):
+self.message = message
+
+class Item(BaseModel):
+name: str
+
+ứng dụng = FastAPI()
+
+@app.get(“/”)
+async def read_items(item: Item, my_dependency: MyDependency = Depends(MyDependency)):
+return {“item”: item, “message”: my_dependency.message}
+
+7. Các thao tác trên đường dẫn trong FastAPI là gì?
+Các thao tác đường dẫn xác định các điểm cuối của API, chỉ định phương thức HTTP (GET, POST, PUT, DELETE, v.v.) và đường dẫn kích hoạt thao tác đó.
+
+8. Thảo luận về các loại thao tác đường dẫn khác nhau (GET, POST, PUT, DELETE, v.v.)
+GET: Truy xuất dữ liệu từ máy chủ.
+Phương thức POST: Gửi dữ liệu đến máy chủ để tạo tài nguyên mới.
+PUT: Cập nhật một tài nguyên hiện có.  
+DELETE: Xóa một tài nguyên khỏi máy chủ.
+PATCH: Cập nhật một phần tài nguyên hiện có.
+9. Trình bày cách tạo thao tác đường dẫn bằng FastAPI.
+from fastapi import FastAPI
+
+ app = FastAPI()
+
+ @app.get("/items/{item_id}")
+ async def read_item(item_id: int):
+     return {"item_id": item_id}   
+ ```
+10. Hãy giải thích tầm quan trọng của việc xác thực dữ liệu trong quá trình phát triển API.
+Tính toàn vẹn dữ liệu: Đảm bảo dữ liệu đầu vào hợp lệ và nhất quán.
+Bảo mật: Giúp ngăn chặn các cuộc tấn công độc hại như tấn công chèn mã và tấn công kịch bản chéo trang (XSS).
+Trải nghiệm người dùng: Cung cấp phản hồi rõ ràng cho người dùng khi dữ liệu không hợp lệ được gửi đi.
+11. FastAPI sử dụng Pydantic như thế nào để xác thực dữ liệu?
+Pydantic là một thư viện định nghĩa các cấu trúc dữ liệu và xác thực dữ liệu dựa trên các cấu trúc đó. FastAPI sử dụng Pydantic để xác thực dữ liệu yêu cầu và phản hồi.
+
+12. Hãy cung cấp ví dụ về việc xác thực dữ liệu yêu cầu và phản hồi trong FastAPI.
+Python
+
+from fastapi import FastAPI, Request, HTTPException
+from pydantic import BaseModel
+
+class Item(BaseModel):
+name: str
+price: float
+
+ứng dụng = FastAPI()
+
+@app.post(“/items/”)
+async def create_item(item: Item, request: Request):
+# Xác thực dữ liệu yêu cầu bằng Pydantic
+item.validate()
+
+# ... process item data
+
+return {"item_id": 123}
+13. Hãy giải thích khái niệm WebSockets và các trường hợp sử dụng của nó.
+WebSockets cung cấp khả năng giao tiếp song công giữa máy khách và máy chủ, cho phép cập nhật theo thời gian thực và truyền dữ liệu hai chiều. Chúng thường được sử dụng cho các ứng dụng trò chuyện, trò chơi trực tuyến và trực quan hóa dữ liệu thời gian thực.
+
+14. Trình bày cách triển khai WebSockets trong FastAPI.
+“python from fastapi import FastAPI, WebSocket, WebSocketDisconnect
+
+ứng dụng = FastAPI()
+
+@app.websocket(“/ws/{client_id}”)
+
+async def websocket_endpoint(websocket: WebSocket, client_id: int):
+
+chờ websocket.accept()
+
+thử:
+
+trong khi đúng:
+
+data = await websocket.receive_text()
+
+await websocket.send_text(f”Bạn đã gửi: {data}”)
+
+ngoại trừ WebSocketDisconnect:
+
+vượt qua
+
+15. Thảo luận về những thách thức và các phương pháp tốt nhất trong phát triển WebSocket.
+Xử lý lỗi: Triển khai các cơ chế xử lý lỗi phù hợp để ngăn ngừa các hành vi không mong muốn.
+Khả năng mở rộng: Hãy cân nhắc sử dụng các thư viện như websocketshoặc asgi-redisđể xử lý số lượng lớn các kết nối WebSocket đồng thời.
+Bảo mật: Chống lại các lỗ hổng như XSS và CSRF.
+16. Giải thích các tác vụ nền và các trường hợp sử dụng của chúng.
+Các tác vụ nền là những tác vụ chạy bất đồng bộ trong nền, cho phép ứng dụng của bạn tiếp tục xử lý các yêu cầu trong khi thực hiện các thao tác kéo dài. Chúng hữu ích cho các tác vụ như gửi email, xử lý tập dữ liệu lớn hoặc kích hoạt các bản cập nhật định kỳ.
+
+17. Trình bày cách tạo các tác vụ nền bằng FastAPI.
+from fastapi import FastAPI, BackgroundTask
+import time
+
+ứng dụng = FastAPI()
+
+async def send_email(recipient: str):
+# Mô phỏng việc gửi email
+time.sleep(2)
+print(f”Đang gửi email đến {recipient}”)
+
+@app.get(“/send-email/{recipient}”)
+async def send_email_endpoint(recipient: str):
+background_task = BackgroundTask(send_email, recipient=recipient)
+return {“message”: “Email đã được gửi trong nền”}
+
+18. Thảo luận về các phương pháp tốt nhất để quản lý các tác vụ nền.
+Xử lý lỗi: Triển khai các cơ chế xử lý lỗi phù hợp để đảm bảo các tác vụ nền được thử lại nếu chúng thất bại.
+Ưu tiên hóa tác vụ: Nếu có nhiều tác vụ nền đang chạy, hãy cân nhắc triển khai hệ thống ưu tiên để đảm bảo các tác vụ quan trọng được thực hiện trước.
+Giám sát tác vụ: Sử dụng các công cụ hoặc thư viện để giám sát trạng thái của các tác vụ nền và theo dõi tiến độ của chúng.
+19. Thảo luận về các vấn đề bảo mật trong quá trình phát triển FastAPI.
+Xác thực: Triển khai các cơ chế để xác minh danh tính người dùng (ví dụ: sử dụng mã thông báo, OAuth).
+Phân quyền: Kiểm soát quyền truy cập vào tài nguyên dựa trên vai trò và quyền hạn của người dùng.
+Kiểm tra tính hợp lệ của dữ liệu đầu vào: Xác thực dữ liệu đầu vào của người dùng để ngăn chặn các cuộc tấn công như tấn công chèn mã độc và tấn công kịch bản chéo trang (CSSS).
+Mã hóa dữ liệu: Mã hóa dữ liệu nhạy cảm cả khi dữ liệu đang được lưu trữ và khi đang truyền tải.
+Tiêu đề bảo mật: Sử dụng các tiêu đề bảo mật như Content-Security-Policyvà HTTP Strict Transport Securityđể bảo vệ chống lại các lỗi thường gặp. `python from fastapi import FastAPI, Depends, HTTPException from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm from pydantic import BaseModel`  
+ứng dụng = FastAPI()
+
+bảo mật = OAuth2PasswordBearer(tokenUrl=”token”)
+
+class User(BaseModel): username: str password: str
+
+async def get_current_user(security_token: str = Depends(security)): user = verify_token(security_token) # Thay thế bằng logic xác minh mã thông báo của bạn return user
+
+@app.post(“/token”) async def login(form_data: OAuth2PasswordRequestForm = Depends()): user = authenticate_user(form_data.username, form_data.password) # Thay thế bằng logic xác thực của bạn nếu không phải người dùng: raise HTTPException(status_code=400, detail=”Tên người dùng hoặc mật khẩu không chính xác”) access_token = create_access_token(user) return {“access_token”: access_token, “token_type”: “bearer”}  
+
+@app.get(“/items/”) async def read_items(current_user: User = Depends(get_current_user)): # Chỉ người dùng đã xác thực mới có thể truy cập điểm cuối này return {“items”: [{“item_id”: 1, “name”: “Foo”}, {“item_id”: 2, “name”: “Bar”}]}
+
+20. Hãy đưa ra ví dụ về việc sử dụng các tính năng bảo mật trong FastAPI.
+Mã hóa mật khẩu: Sử dụng các thuật toán mã hóa mật khẩu mạnh như bcrypt để lưu trữ mật khẩu người dùng một cách an toàn.
+CORS: Cấu hình cài đặt CORS để cho phép các yêu cầu từ các tên miền cụ thể.
+Giới hạn tốc độ: Giới hạn số lượng yêu cầu mà một máy khách có thể thực hiện trong một khoảng thời gian nhất định để ngăn chặn việc lạm dụng.
+Mã hóa dữ liệu: Mã hóa dữ liệu nhạy cảm bằng cách sử dụng các thư viện như cryptography.
+Tiêu đề bảo mật: Thiết lập các tiêu đề bảo mật như Content-Security-Policyvà HTTP Strict Transport Securityđể bảo vệ chống lại các cuộc tấn công web phổ biến.
+21. Thảo luận về tầm quan trọng của việc kiểm thử trong quá trình phát triển FastAPI.
+Đảm bảo chất lượng: Đảm bảo mã API của bạn đáng tin cậy và hoạt động như mong đợi.
+Ngăn ngừa lỗi: Giúp xác định và sửa lỗi trước khi triển khai vào môi trường sản xuất.
+Kiểm thử hồi quy: Xác minh rằng những thay đổi đối với mã của bạn không gây ra lỗi mới.
+Tài liệu: Các trường hợp kiểm thử có thể đóng vai trò như tài liệu mô tả hoạt động của API.
+22. Trình bày cách viết các bài kiểm thử đơn vị và kiểm thử tích hợp cho các ứng dụng FastAPI.
+import pytest
+from fastapi import FastAPI, HTTPException
+from pydantic import BaseModel
+
+ứng dụng = FastAPI()
+
+class Item(BaseModel):
+name: str
+price: float
+
+@app.post(“/items/”)
+async def create_item(item: Item):
+return {“item_id”: 123}
+
+# Kiểm thử đơn vị
+
+def test_create_item():
+client = TestClient(app)
+response = client.post(“/items/”, json={“name”: “Foo”, “price”: 10.0})
+assert response.status_code == 200
+assert response.json() == {“item_id”: 123}
+
+# Kiểm thử tích hợp
+
+def test_create_item_with_invalid_data():
+client = TestClient(app)
+response = client.post(“/items/”, json={“name”: “”})
+assert response.status_code == 422
+assert response.json()[“detail”][0][“msg”] == “required”
+
+23. Hãy giải thích các phương pháp tốt nhất để kiểm thử ứng dụng FastAPI.
+Độ phủ kiểm thử: Hãy hướng đến độ phủ kiểm thử cao để đảm bảo tất cả các phần trong mã của bạn đều được kiểm thử kỹ lưỡng.
+Kiểm thử độc lập: Viết các bài kiểm thử độc lập với nhau để tránh các tương tác không mong muốn.
+Tự động hóa kiểm thử: Sử dụng các công cụ như pytest để tự động hóa việc chạy các bài kiểm thử của bạn.
+Tích hợp liên tục: Tích hợp các bài kiểm thử của bạn vào quy trình tích hợp liên tục để tự động chạy chúng mỗi khi mã nguồn thay đổi.
+24. Hãy giải thích khái niệm tiêm phụ thuộc (dependency injection) trong FastAPI.
+Dependency injection là một mẫu thiết kế trong đó các phụ thuộc (các đối tượng cần thiết cho một lớp) được cung cấp cho lớp đó từ bên ngoài, thay vì chính lớp đó tạo ra chúng.
+
+25. Bạn xử lý lỗi xác thực yêu cầu trong FastAPI như thế nào?
+FastAPI tự động xử lý các lỗi xác thực yêu cầu và trả về thông báo lỗi chi tiết với mã trạng thái 422 khi dữ liệu đầu vào không phù hợp với mô hình Pydantic đã định nghĩa.
+
+26. Làm thế nào để bảo mật các điểm cuối FastAPI bằng OAuth2?
+FastAPI cung cấp hỗ trợ tích hợp cho OAuth2 thông qua OAuth2PasswordBearercác OAuth2PasswordRequestFormtuyến đường bảo mật. Nó yêu cầu tạo một luồng xác thực để tạo và xác thực mã thông báo JWT.
+
+27. Làm thế nào để xử lý các tác vụ nền trong FastAPI?
+Các tác vụ nền có thể được xử lý bằng cách sử dụng BackgroundTaskslớp:
+
+from fastapi import BackgroundTasks
+def send_email(email: str):
+# Logic gửi email
+@app.post(“/send-email/”)
+def send_email_background(email: str, background_tasks: BackgroundTasks):
+background_tasks.add_task(send_email, email)
+return {“message”: “Email sẽ được gửi”}
+
+28. Middleware trong FastAPI là gì và cách sử dụng chúng như thế nào?
+Middleware là một lớp xử lý các yêu cầu trước khi chúng đến được tuyến đường chính của bạn và có thể xử lý các phản hồi trước khi gửi chúng đến máy khách. Ví dụ về việc sử dụng middleware:
+
+pythonSao chép mã
+from starlette.middleware.base import BaseHTTPMiddleware
+app.add_middleware(BaseHTTPMiddleware, dispatch=my_custom_middleware)
+29. Bạn kiểm thử các ứng dụng FastAPI như thế nào?
+FastAPI hỗ trợ kiểm thử với cú pháp TestClienttừ starlette.testclient:
+
+pythonSao chép mã
+from fastapi.testclient import TestClient
+client = TestClient(app)
+def test_read_item():
+    response = client.get("/items/")
+    assert response.status_code == 200
+30. Bạn cấu trúc một dự án FastAPI như thế nào?
+Cấu trúc dự án FastAPI điển hình bao gồm các module riêng biệt cho các tuyến đường, mô hình và dịch vụ. Ví dụ:
+
+markdownSao chép mã
+- app/
+  - main.py
+  - routes/
+  - models/
+  - services/
+31. CORS là gì và bạn xử lý chúng như thế nào trong FastAPI?
+CORS (Chia sẻ tài nguyên đa nguồn gốc) giới hạn các tên miền có thể tương tác với API của bạn. Bạn có thể bật CORS trong FastAPI bằng cách sử dụng CORSMiddleware:
+
+pythonSao chép mã
+from fastapi.middleware.cors import CORSMiddleware
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+32. Làm thế nào để tải tệp lên FastAPI?
+Bạn có thể tải lên các tệp bằng cách sử dụng các lớp Filevà UploadFile:
+
+pythonSao chép mã
+from fastapi import File, UploadFile
+@app.post("/uploadfile/")
+def upload_file(file: UploadFile = File(...)):
+    return {"filename": file.filename}
+33. Làm thế nào để triển khai phân trang trong FastAPI?
+Phân trang thường được thực hiện bằng cách chấp nhận các tham số limittruy skipvấn và trả về một tập hợp con của dữ liệu:
+
+pythonSao chép mã
+@app.get("/items/")
+def get_items(skip: int = 0, limit: int = 10):
+    return items[skip : skip + limit]
+34. Làm thế nào để sử dụng WebSockets trong FastAPI?
+WebSockets trong FastAPI được hỗ trợ thông qua @app.websocket()decorator:
+
+pythonSao chép mã
+@app.websocket("/ws")
+async def websocket_endpoint(websocket: WebSocket):
+    await websocket.accept()
+    await websocket.send_text("Hello WebSocket")
+35. Sự khác biệt giữa @app.get()và @app.post()trong FastAPI là gì?
+@app.get()Phương thức này xử lý các yêu cầu HTTP GET, thường được sử dụng để truy xuất dữ liệu, trong khi @app.post()phương thức kia xử lý các yêu cầu HTTP POST, được sử dụng để gửi dữ liệu đến máy chủ.
+
+36. Làm thế nào bạn có thể tùy chỉnh việc xử lý ngoại lệ trong FastAPI?
+FastAPI cho phép xử lý ngoại lệ tùy chỉnh bằng cách sử dụng @app.exception_handler()decorator:
+
+pythonSao chép mã
+from fastapi.exceptions import RequestValidationError
+@app.exception_handler(RequestValidationError)
+async def validation_exception_handler(request, exc):
+    return JSONResponse(status_code=422, content={"detail
+37. Bạn xử lý dữ liệu biểu mẫu trong FastAPI như thế nào?
+Dữ liệu biểu mẫu có thể được xử lý Formbằng FastAPI:python from fastapi import Form @app.post("/login/") def login(username: str = Form(...), password: str = Form(...)): return {"username": username}
+
+38. Làm thế nào để xử lý nhiều tham số truy vấn trong FastAPI?
+Bạn có thể xử lý nhiều tham số truy vấn bằng cách định nghĩa chúng dưới dạng đối số hàm. FastAPI sẽ tự động phân tích và xác thực chúng:python @app.get("/items/") def read_items(q: str = None, limit: int = 10): return {"q": q, "limit": limit}
+
+39. Các đối tượng yêu cầu và phản hồi trong FastAPI là gì?
+Đối tượng request đại diện cho yêu cầu HTTP đến, và đối tượng response đại diện cho phản hồi HTTP đi. Bạn có thể sử dụng Requestcác Responselớp từ FastAPI:python from fastapi import Request, Response @app.get("/custom-response/") def custom_response(request: Request, response: Response): response.headers["X-Custom-Header"] = "Custom value" return {"message": "Custom response"}
+
+40. Làm thế nào bạn có thể xác thực một trường cụ thể trong mô hình Pydantic?
+Bạn có thể sử dụng trình xác thực Pydantic để kiểm tra tính hợp lệ của các trường:python from pydantic import BaseModel, validator class Item(BaseModel): name: str price: float @validator('price') def price_must_be_positive(cls, value): if value <= 0: raise ValueError("Price must be positive") return value
+
+41. Mục đích của Depends()FastAPI là gì?
+Depends()Được sử dụng để khai báo các phụ thuộc cho các thao tác trên đường dẫn của bạn. Nó cho phép bạn tái sử dụng logic như kết nối cơ sở dữ liệu, xác thực, v.v.
+
+42. Bạn xử lý các phụ thuộc toàn cục trong FastAPI như thế nào?
+Các phụ thuộc toàn cục có thể được áp dụng trên nhiều tuyến đường bằng cách thêm chúng vào dependenciesđối số khi tạo thể hiện FastAPI:python app = FastAPI(dependencies=[Depends(common_dependency)])
+
+43. Các phụ thuộc bất đồng bộ là gì và làm thế nào bạn có thể định nghĩa chúng trong FastAPI?
+Các phụ thuộc bất đồng bộ được định nghĩa bằng async defvà có thể được tiêm vào Depends()giống như các phụ thuộc thông thường. Chúng hữu ích cho các hoạt động I/O bất đồng bộ như truy vấn cơ sở dữ liệu.
+
+44. Làm thế nào để xử lý việc giới hạn tốc độ trong FastAPI?
+Việc giới hạn tốc độ có thể được thực hiện bằng cách sử dụng các thư viện của bên thứ ba slowapihoặc phần mềm trung gian tùy chỉnh để giới hạn số lượng yêu cầu cho mỗi người dùng hoặc địa chỉ IP:python from slowapi import Limiter from slowapi.util import get_remote_address limiter = Limiter(key_func=get_remote_address) @app.get("/items/") @limiter.limit("5/minute") def get_items(): return {"message": "This is rate-limited"}
+
+45. Bạn quản lý các kết nối cơ sở dữ liệu trong FastAPI như thế nào?
+Việc quản lý kết nối cơ sở dữ liệu có thể được thực hiện bằng cách sử dụng cơ chế tiêm phụ thuộc (dependency injection). Bạn có thể định nghĩa một phụ thuộc tạo ra một phiên làm việc cơ sở dữ liệu:python def get_db(): db = SessionLocal() try: yield db finally: db.close() @app.get("/items/") def read_items(db: Session = Depends(get_db)): return db.query(Item).all()
+
+46. ​​Làm thế nào bạn có thể triển khai xác thực dựa trên JWT trong FastAPI?
+Xác thực dựa trên JWT được thực hiện bằng cách sử dụng OAuth2PasswordBearervà tạo mã thông báo JWT khi đăng nhập thành công:python from fastapi.security import OAuth2PasswordBearer oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token") @app.get("/users/me") def read_users_me(token: str = Depends(oauth2_scheme)): user = verify_token(token) return user
+
+47. Sự khác biệt giữa các điểm cuối đồng bộ và không đồng bộ trong FastAPI là gì?
+Các điểm cuối đồng bộ là các thao tác chặn và có thể gây ra các vấn đề về hiệu suất với các hoạt động I/O lớn, trong khi các điểm cuối không đồng bộ cho phép các hoạt động I/O không chặn, cải thiện hiệu suất trong những trường hợp này.
+
+48. Làm thế nào để xử lý các ngoại lệ trên toàn cục trong FastAPI?
+Việc xử lý ngoại lệ toàn cục có thể được thực hiện bằng cách sử dụng các lớp ngoại lệ tùy chỉnh và @app.exception_handler():python from fastapi import HTTPException class CustomException(Exception): def __init__(self, name: str): self.name = name @app.exception_handler(CustomException) def custom_exception_handler(request, exc: CustomException): return JSONResponse(status_code=418, content={"message": f"Custom Exception: {exc.name}"})
+
+49. Làm thế nào để tối ưu hóa hiệu suất của FastAPI?
+Các biện pháp tối ưu hóa hiệu năng có thể bao gồm sử dụng các điểm cuối bất đồng bộ cho các hoạt động phụ thuộc vào I/O, lưu trữ phản hồi vào bộ nhớ đệm, sử dụng phần mềm trung gian hiệu quả và sử dụng các bộ cân bằng tải như Nginx hoặc Traefik.
+
+50. Bạn xử lý việc tải lên các tập tin dung lượng lớn trong FastAPI như thế nào?
+Việc tải lên các tập tin lớn có thể được xử lý bằng cách điều chỉnh cấu hình máy chủ ASGI, sử dụng StreamingResponsehoặc ghi tập tin theo từng phần:python from fastapi.responses import StreamingResponse @app.post("/upload/") async def upload_large_file(file: UploadFile = File(...)): async def iterfile(): yield from file.file return StreamingResponse(iterfile(), media_type="application/octet-stream")
+
+Phần kết luận
+Trong hướng dẫn này, chúng tôi đã tìm hiểu 50 câu hỏi và câu trả lời phỏng vấn FastAPI hàng đầu. Bằng cách hiểu các khái niệm cốt lõi, các chủ đề nâng cao và các phương pháp hay nhất, bạn sẽ được trang bị đầy đủ để giải quyết bất kỳ câu hỏi phỏng vấn nào liên quan đến FastAPI.
+
+Những điểm chính:
+
+Nắm vững các nguyên tắc cơ bản: Hiểu về lập trình bất đồng bộ, tiêm phụ thuộc, các thao tác trên đường dẫn và xác thực dữ liệu.
+Khám phá các chủ đề nâng cao: Làm quen với WebSockets, các tác vụ nền, bảo mật và kiểm thử.
+Luyện tập thường xuyên: Hãy thường xuyên luyện tập giải các bài toán liên quan đến FastAPI để nâng cao kỹ năng của bạn.
+Luôn cập nhật: Nắm bắt những phát triển mới nhất và các phương pháp tốt nhất trong hệ sinh thái FastAPI.
