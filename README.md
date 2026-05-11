@@ -1,3 +1,5 @@
+https://www.youtube.com/watch?v=0nO6OwUUF2k
+
 "C# leetcode"
 https://github.com/LeetCode-in-Net/LeetCode-in-Net
 "# CV" 
